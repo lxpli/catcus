@@ -1,0 +1,21 @@
+spring:
+    db:
+        url: jdbc:mysql://127.0.0.1:3306/gitapi?useUnicode=true&characterEncoding=utf-8
+        driver: com.mysql.jdbc.Driver
+        name: root
+        pwd: 123456
+        filters: stat,wall,log4j
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=10000
+    redis:
+        host: 10.3.93.216
+        port: 6379
+        #redis获取连接时限,单位:毫秒
+        timeout: 5000
+        #缓存内容过期时间,单位:秒
+        expire: 1800
+    mvc:
+      view:
+        prefix: /
+        suffix: .html
+server:
+    port: 8081
