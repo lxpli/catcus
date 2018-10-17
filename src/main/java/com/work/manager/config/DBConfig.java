@@ -1,7 +1,7 @@
 package com.work.manager.config;
 
 import java.io.Serializable;
-import java.sql.SQLException;
+import java.nio.charset.StandardCharsets;
 
 import javax.sql.DataSource;
 
@@ -12,8 +12,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.spring.boot.starter.SpringBootVFS;
@@ -102,5 +104,11 @@ public class DBConfig implements Serializable {
         return sessionFactory.getObject();
     }
     
+    @Bean
+	public RestTemplate restTemplate() {
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
+		return restTemplate;
+	}
     
 }

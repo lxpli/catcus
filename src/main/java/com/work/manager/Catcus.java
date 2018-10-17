@@ -13,7 +13,7 @@ public class Catcus
     public static void main( String[] args )
     {
     	SpringApplication.run(Catcus.class, args);
-        System.err.println("start");
+        System.out.println("-----------------------  start  --------------------------");
         
     }
     
