@@ -17,4 +17,4 @@ spring:
         prefix: /
         suffix: .html
 server:
-    port: 8080
+    port: 8084
